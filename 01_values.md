@@ -1,10 +1,10 @@
 {{meta {docid: values}}}
 
-# Values, Types, and Operators
+# 值、型別和運算子
 
-{{quote {author: "Master Yuan-Ma", title: "The Book of Programming", chapter: true}
+{{quote {author: "Master Yuan-Ma", title: "《編程之書》", chapter: true}
 
-Below the surface of the machine, the program moves. Without effort, it expands and contracts. In great harmony, electrons scatter and regroup. The forms on the monitor are but ripples on the water. The essence stays invisibly below.
+程式運行在機器的表面之下。它毫不費力地膨脹和收縮。在非常和諧的情況下，電子散射並重組。螢幕上的形式不過是水面上的漣漪。本質則隱藏在看不見的地方。
 
 quote}}
 
@@ -14,42 +14,42 @@ quote}}
 
 {{index "binary data", data, bit, memory}}
 
-In the computer's world, there is only data. You can read data, modify data, create new data—but that which isn't data cannot be mentioned. All this data is stored as long sequences of bits and is thus fundamentally alike.
+在電腦的世界裡，只有資料。你可以讀取資料、修改資料、建立新的資料——但無法提及不是資料的東西。所有這些資料都儲存為長長的位元序列，因此從本質上來說是相似的。
 
 {{index CD, signal}}
 
-_Bits_ are any kind of two-valued things, usually described as zeros and ones. Inside the computer, they take forms such as a high or low electrical charge, a strong or weak signal, or a shiny or dull spot on the surface of a CD. Any piece of discrete information can be reduced to a sequence of zeros and ones and thus represented in bits.
+_位元_ 是任何有兩種值的東西，通常被描述為 0 和 1。在電腦內部，它們可能以高低電壓、強弱訊號，或是 CD 表面的亮暗點等形式存在。任何離散的資訊都可以簡化為一串 0 和 1，從而用位元來表示。
 
 {{index "binary number", radix, "decimal number"}}
 
-For example, we can express the number 13 in bits. This works the same way as a decimal number, but instead of 10 different ((digit))s, we have only 2, and the weight of each increases by a factor of 2 from right to left. Here are the bits that make up the number 13, with the weights of the digits shown below them:
+舉例來說，我們可以用位元表示數字 13。這與十進位數字的運作方式相同，但我們只有 2 個數字，而不是 10 個 _不同_ 的數字，且每個數字的權重從右到左以 2 的倍數遞增。以下是構成數字 13 的位元，以及它們下方顯示的數字權重：
 
 ```{lang: null}
    0   0   0   0   1   1   0   1
  128  64  32  16   8   4   2   1
 ```
 
-That's the binary number 00001101. Its non-zero digits stand for 8, 4, and 1, and add up to 13.
+這是二進位數字 00001101。它的非零數字代表 8、4 和 1，總和為 13。
 
-## Values
+## 值
 
 {{index [memory, organization], "volatile data storage", "hard drive"}}
 
-Imagine a sea of bits—an ocean of them. A typical modern computer has more than 100 billion bits in its volatile data storage (working memory). Nonvolatile storage (the hard disk or equivalent) tends to have yet a few orders of magnitude more.
+想像一下，有一片、或者說一整個海洋——位元海。一台典型的現代電腦，其揮發性資料儲存（工作記憶體）中有超過 1,000 億個位元。非易失性儲存（硬碟或同等儲存裝置）的儲存量則往往還要高出幾個數量級。
 
-To be able to work with such quantities of bits without getting lost, we separate them into chunks that represent pieces of information. In a JavaScript environment, those chunks are called _((value))s_. Though all values are made of bits, they play different roles. Every value has a ((type)) that determines its role. Some values are numbers, some values are pieces of text, some values are functions, and so on.
+為了能夠在如此龐大的位元量中工作而不迷失方向，我們將它們分成代表資訊片段的區塊。在 JavaScript 環境中，這些區塊被稱為值（value）。雖然所有的值都是由位元構成的，但它們扮演著不同的角色。每個值都有一個型別（type），決定了它的角色類型。有些值是數字，有些值是文字片段，有些值是函式等等。
 
 {{index "garbage collection"}}
 
-To create a value, you must merely invoke its name. This is convenient. You don't have to gather building material for your values or pay for them. You just call for one, and _whoosh_, you have it. Of course, values are not really created from thin air. Each one has to be stored somewhere, and if you want to use a gigantic number of them at the same time, you might run out of computer memory. Fortunately, this is a problem only if you need them all simultaneously. As soon as you no longer use a value, it will dissipate, leaving behind its bits to be recycled as building material for the next generation of values.
+要建立一個值，你只需要呼叫它的名稱。這很方便。你不必為你的值收集建材，也不必付錢。你只要召喚一個值，嗖的一聲，它就出現了。當然，價值並非真的憑空而來。每個值都必須儲存在某個地方，如果你想同時使用大量的值，可能會用盡電腦的記憶體。幸運的是，只有當你需要同時使用所有的值時，這才是個問題。一旦你不再使用某個值，它就會消散，留下其碎片。作為下一代值的建材而被回收利用。
 
-The remainder of this chapter introduces the atomic elements of JavaScript programs, that is, the simple value types and the operators that can act on such values.
+本章的其餘部分介紹了 JavaScript 程式的原子元素，也就是簡單的值型別，以及可以操作這些值的運算子。
 
-## Numbers
+## 數字
 
 {{index [syntax, number], number, [number, notation]}}
 
-Values of the _number_ type are, unsurprisingly, numeric values. In a JavaScript program, they are written as follows:
+數字（number）型別的值——不出所料——就是數值。在 JavaScript 程式中，它們是這樣寫的：
 
 ```
 13
@@ -57,21 +57,22 @@ Values of the _number_ type are, unsurprisingly, numeric values. In a JavaScript
 
 {{index "binary number"}}
 
-Using that in a program will cause the bit pattern for the number 13 to come into existence inside the computer's memory.
+在程式中使用上面的寫法，會讓表示數字 13 的位元模式在電腦的記憶體中產生。
 
 {{index [number, representation], bit}}
 
-JavaScript uses a fixed number of bits, 64 of them, to store a single number value. There are only so many patterns you can make with 64 bits, which limits the number of different numbers that can be represented. With _N_ decimal ((digit))s, you can represent 10^N^ numbers. Similarly, given 64 binary digits, you can represent 2^64^ different numbers, which is about 18 quintillion (an 18 with 18 zeros after it). That's a lot.
+JavaScript 使用固定數量的位元（64 位元）來儲存單一個數值。你能用 64 個位元產生的模式數量是有限的。這限制了能表示的不同數字的數量。使用 N 個十進位數字。你能表示 10^N^ 個數字。同樣，給定 64 個二進位數字。你可以表示 2^64^ 個不同的數字，大約是 18 百京（10^18^，18 後面跟 18 個零）。這是一個很大的數字。
 
-Computer memory used to be much smaller, and people tended to use groups of 8 or 16 bits to represent their numbers. It was easy to accidentally _((overflow))_ such small numbers—to end up with a number that did not fit into the given number of bits. Today, even computers that fit in your pocket have plenty of memory, so you are free to use 64-bit chunks, and you need to worry about overflow only when dealing with truly astronomical numbers.
+電腦記憶體過去要小得多，人們傾向於用 8 或 16 個位元的組合來表示數字。這樣很容易意外地溢位（overflow）——產生一個無法用給定位元數表示的數字。如今，即使是裝在口袋裡的電腦也有充足的記憶體，所以你可以自由地使用 64 個位元的區塊，只有在處理真正天文數字般大的數值時才需要擔心溢位問題。
 
 {{index sign, "floating-point number", "sign bit"}}
 
-Not all whole numbers less than 18 quintillion fit in a JavaScript number, though. Those bits also store negative numbers, so one bit indicates the sign of the number. A bigger issue is representing nonwhole numbers. To do this, some of the bits are used to store the position of the decimal point. The actual maximum whole number that can be stored is more in the range of 9 quadrillion (15 zeros)—which is still pleasantly huge.
+不過，並非所有小於 18 百京（10^18^）的整數都能放進一個 JavaScript 數字中。這些位元也用於儲存負數，因此有一個位元表示數字的正負號。更大的問題是表示非整數。為了做到這一點，一些位元被用來儲存小數點的位置。實際上能儲存的最大整數大約在 9 千兆（10^15^，15 個零）的範圍內，這仍然是一個讓人愉快的巨大數字。
+
 
 {{index [number, notation], "fractional number"}}
 
-Fractional numbers are written using a dot:
+分數用小數點寫出來：
 
 ```
 9.81
@@ -79,23 +80,24 @@ Fractional numbers are written using a dot:
 
 {{index exponent, "scientific notation", [number, notation]}}
 
-For very big or very small numbers, you may also use scientific notation by adding an _e_ (for _exponent_), followed by the exponent of the number:
+對於非常大或非常小的數字，你也可以使用科學記號，在數字後面加上一個 _e_ (表示指數 _exponent_ ),後面再跟著數字的指數：
 
 ```
 2.998e8
 ```
 
-That's 2.998 × 10^8^ = 299,800,000.
+那是 2.998 × 10^8^ = 299,800,000。
 
 {{index pi, [number, "precision of"], "floating-point number"}}
 
-Calculations with whole numbers (also called _((integer))s_) that are smaller than the aforementioned 9 quadrillion are guaranteed to always be precise. Unfortunately, calculations with fractional numbers are generally not. Just as π (pi) cannot be precisely expressed by a finite number of decimal digits, many numbers lose some precision when only 64 bits are available to store them. This is a shame, but it causes practical problems only in specific situations. The important thing is to be aware of it and treat fractional digital numbers as approximations, not as precise values.
+對小於前面提到的 9 千兆的整數（也叫做整數 _integer_ ）進行計算，可以保證總是精確的。不幸的是，對分數的計算通常就不那麼精確了。正如 π(pi)無法用有限的十進位數字精確表示，許多數字在只用 64 個位元儲存時會失去一些精準度。這很遺憾，但只有在特定情況下才會造成實際問題。重要的是要意識到這一點，把分數型的數位數字視為近似值，而不是精確值。
 
-### Arithmetic
+### 算術運算
 
 {{index [syntax, operator], operator, "binary operator", arithmetic, addition, multiplication}}
 
 The main thing to do with numbers is arithmetic. Arithmetic operations such as addition or multiplication take two number values and produce a new number from them. Here is what they look like in JavaScript:
+對數字最主要的操作就是算術運算。像是加法或乘法等算術運算子會接受兩個數字值，並從中產生一個新的數字。在 JavaScript 中，它們看起來像這樣：
 
 ```{meta: "expr"}
 100 + 4 * 11
@@ -103,11 +105,11 @@ The main thing to do with numbers is arithmetic. Arithmetic operations such as a
 
 {{index [operator, application], asterisk, "plus character", "* operator", "+ operator"}}
 
-The `+` and `*` symbols are called _operators_. The first stands for addition and the second stands for multiplication. Putting an operator between two values will apply it to those values and produce a new value.
+`+` 和 `*` 符號被稱為運算子。第一個代表加法，第二個代表乘法。將運算子置於兩個值之間，就會將運算子套用到那些值，並產生一個新值。
 
 {{index grouping, parentheses, precedence}}
 
-Does this example mean "Add 4 and 100, and multiply the result by 11", or is the multiplication done before the adding? As you might have guessed, the multiplication happens first. As in mathematics, you can change this by wrapping the addition in parentheses:
+這個範例是表示「把 4 加到 100,然後將結果乘以 11」，還是先做乘法再做加法？你可能已經猜到了，乘法會先進行。就像在數學中一樣，你可以用括號將加法括起來，改變運算的順序：
 
 ```{meta: "expr"}
 (100 + 4) * 11
@@ -115,33 +117,33 @@ Does this example mean "Add 4 and 100, and multiply the result by 11", or is the
 
 {{index "hyphen character", "slash character", division, subtraction, minus, "- operator", "/ operator"}}
 
-For subtraction, there is the `-` operator. Division can be done with the `/` operator.
+減法的運算子是 `-`。除法則是用 `/` 運算子。
 
-When operators appear together without parentheses, the order in which they are applied is determined by the _((precedence))_ of the operators. The example shows that multiplication comes before addition. The `/` operator has the same precedence as `*`. Likewise, `+` and `-` have the same precedence. When multiple operators with the same precedence appear next to each other, as in `1 - 2 + 1`, they are applied left to right: `(1 - 2) + 1`.
+當運算子沒有被括號括起來時，它們套用的順序取決於運算子的優先順序。這個範例顯示，乘法優先於加法。`/` 運算子與 `*` 具有相同的優先順序。同樣地，`+` 和 `-` 也有相同的優先順序。當具有相同優先順序的多個運算子並排出現時，例如：`1 - 2 + 1`，它們會從左到右依序套用：`(1 - 2) + 1`。
 
-Don't worry too much about these precedence rules. When in doubt, just add parentheses.
+不用太擔心這些優先順序規則。有疑慮時，直接加上括號就好。
 
 {{index "modulo operator", division, "remainder operator", "% operator"}}
 
-There is one more arithmetic operator, which you might not immediately recognize. The `%` symbol is used to represent the _remainder_ operation. `X % Y` is the remainder of dividing `X` by `Y`. For example, `314 % 100` produces `14`, and `144 % 12` gives `0`. The remainder operator's precedence is the same as that of multiplication and division. You'll also often see this operator referred to as _modulo_.
+還有一個算術運算子,你可能不會立刻認出它。`%` 符號用來表示取餘數的運算。`X % Y` 是 `X` 除以 `Y` 的餘數。例如：`314 % 100` 會得到 `14`，而 `144 % 12` 會得到 `0`。餘數運算子的優先順序與乘法和除法相同。你也常會看到這個運算子被稱為模數( _modulo_ )。
 
-### Special numbers
+### 特殊數字
 
 {{index [number, "special values"], infinity}}
 
-There are three special values in JavaScript that are considered numbers but don't behave like normal numbers. The first two are `Infinity` and `-Infinity`, which represent the positive and negative infinities. `Infinity - 1` is still `Infinity`, and so on. Don't put too much trust in infinity-based computation, though. It isn't mathematically sound, and it will quickly lead to the next special number: `NaN`.
+JavaScript 中有三個被視為數字的特殊值，但它們的行為與一般數字不同。前兩個是 `Infinity` 和 `-Infinity`，分別表示正無窮大和負無窮大。`Infinity - 1` 仍然是 `Infinity`，依此類推。但不要太信任以無窮大為基礎的計算。它在數學上並不合理，而且很快就會導致下一個特殊數字：`NaN`。
 
 {{index NaN, "not a number", "division by zero"}}
 
-`NaN` stands for "not a number", even though it _is_ a value of the number type. You'll get this result when you, for example, try to calculate `0 / 0` (zero divided by zero), `Infinity - Infinity`, or any number of other numeric operations that don't yield a meaningful result.
+`NaN` 表示「不是一個數字」(not a number)，儘管它是 number 型別的一個值。當你嘗試計算 `0 / 0`(零除以零)、`Infinity - Infinity` 或任何其他沒有有意義結果的數值運算時，就會得到這個結果。
 
-## Strings
+## 字串
 
 {{indexsee "grave accent", backtick}}
 
 {{index [syntax, string], text, character, [string, notation], "single-quote character", "double-quote character", "quotation mark", backtick}}
 
-The next basic data type is the _((string))_. Strings are used to represent text. They are written by enclosing their content in quotes.
+下一個基本資料型別是 _((字串))_ 。字串用於表示文字。它們是以將內容括在引號中的方式編寫。
 
 ```
 `Down on the sea`
@@ -149,28 +151,27 @@ The next basic data type is the _((string))_. Strings are used to represent text
 'Float on the ocean'
 ```
 
-You can use single quotes, double quotes, or backticks to mark strings, as long as the quotes at the start and the end of the string match.
+你可以使用單引號、雙引號或反引號來標記字串，只要確保字串開頭和結尾的引號相匹配即可。
 
 {{index "line break", "newline character"}}
 
-You can put almost anything between quotes to have JavaScript make a string value out of it. But a few characters are more difficult. You can imagine how putting quotes between quotes might be hard, since they will look like the end of the string. _Newlines_ (the characters you get when you press [enter]{keyname}) can be included only when the string is quoted with backticks (`` ` ``).
+你可以將幾乎任何東西放在引號之間，讓 JavaScript 將其轉換為字串值。但有些字元會比較難處理。你可以想像，要在引號之間放入引號可能會很困難，因為它們看起來像是字串的結尾。僅當字串用反引號（`` ` ``）括住的時候，才能包含換行字元（當你按下 [enter 鍵]{keyname}時得到的字元）。
 
 {{index [escaping, "in strings"], ["backslash character", "in strings"]}}
 
-To make it possible to include such characters in a string, the following notation is used: a backslash (`\`) inside quoted text indicates that the character after it has a special meaning. This is called _escaping_ the character. A quote that is preceded by a backslash will not end the string but be part of it. When an `n` character occurs after a backslash, it is interpreted as a newline. Similarly, a `t` after a backslash means a ((tab character)). Take the following string:
+為了讓這些字元可以包含在字串中，使用以下表示法：在引號中的反斜線 （`\`） 表示其後的字元具有特殊含義。這被稱為跳脫（escaping）字元。在反斜線之後的引號不會結束字串，而是成為字串的一部分。當 `n` 字元出現在反斜線之後時，它會被解釋為換行。同樣，反斜線後面的 `t` 表示定位字元（tab）。看看下面的字串：
 
 ```
 "This is the first line\nAnd this is the second"
 ```
 
-This is the actual text in that string:
+這是該字串中的實際文字：
 
 ```{lang: null}
 This is the first line
 And this is the second
 ```
-
-There are, of course, situations where you want a backslash in a string to be just a backslash, not a special code. If two backslashes follow each other, they will collapse together, and only one will be left in the resulting string value. This is how the string "_A newline character is written like `"`\n`"`._" can be expressed:
+然而在某些情況下，你會想在字串中使用反斜線，而不是特殊字元。如果兩個反斜線相連，它們會合併在一起，而在結果字串值中只會留下一個反斜線。這就是字串换行字元的寫法，比如 " _A newline character is written like `"`\n`"`._ "。可以表示為：
 
 ```
 "A newline character is written like \"\\n\"."
@@ -180,37 +181,38 @@ There are, of course, situations where you want a backslash in a string to be ju
 
 {{index [string, representation], Unicode, character}}
 
-Strings, too, have to be modeled as a series of bits to be able to exist inside the computer. The way JavaScript does this is based on the _((Unicode))_ standard. This standard assigns a number to virtually every character you would ever need, including characters from Greek, Arabic, Japanese, Armenian, and so on. If we have a number for every character, a string can be described by a sequence of numbers. And that's what JavaScript does.
+為了能夠存在於電腦中，字串也必須被建模為一系列的位元。JavaScript 採用了以 Unicode 標準為基礎的方式來做到這一點。該標準為你可能需要的幾乎每個字元分配了一個數字，包括希臘文、阿拉伯文、日文、亞美尼亞文等的字元。如果每個字元都有一個數字，就可以用數字序列來描述字串。這就是 JavaScript 所做的。
 
 {{index "UTF-16", emoji}}
 
-There's a complication though: JavaScript's representation uses 16 bits per string element, which can describe up to 2^16^ different characters. However, Unicode defines more characters than that—about twice as many, at this point. So some characters, such as many emoji, take up two "character positions" in JavaScript strings. We'll come back to this in [Chapter ?](higher_order#code_units).
+不過這裡有一個複雜之處：JavaScript 的表示法每個字串元素使用 16 位元，最多可以描述 2^16^ 個不同的字元。然而，Unicode 定義的字元比這個還要多——目前大約是兩倍。所以有些字元（例如許多表情符號），在 JavaScript 字串中佔據了兩個「字元位置」。我們會在第[章節 ?](higher_order#code_units)再回到這個主題。
 
 {{index "+ operator", concatenation}}
 
-Strings cannot be divided, multiplied, or subtracted. The `+` operator _can_ be used on them, not to add, but to _concatenate_—to glue two strings together. The following line will produce the string `"concatenate"`:
+字串不能被除、乘或減。`+` 運算子可以用在字串上，但不是用來相加，而是用來串接（concatenate）——將兩個字串粘合在一起。下面這行會產生字串 `"concatenate"`:
 
 ```{meta: "expr"}
 "con" + "cat" + "e" + "nate"
 ```
 
-String values have a number of associated functions (_methods_) that can be used to perform other operations on them. I'll say more about these in [Chapter ?](data#methods).
+字串值有一些相關的函式（ _methods_ ），可用於在字串上執行其他操作。我會在第[章節 ?](data#methods)詳細說明這些函式。
 
 {{index interpolation, backtick}}
 
-Strings written with single or double quotes behave very much the same—the only difference lies in which type of quote you need to escape inside of them. Backtick-quoted strings, usually called _((template literals))_, can do a few more tricks. Apart from being able to span lines, they can also embed other values.
+用單引號或雙引號編寫的字串行為非常相似——唯一的區別在於你需要在其中跳脫哪種類型的引號。用反引號括住的字串通常被稱為模板字串（template literal），它們可以做更多花樣。除了能夠跨行之外，它們還可以嵌入其他值。
 
 ```{meta: "expr"}
 `half of 100 is ${100 / 2}`
 ```
 
-When you write something inside `${}` in a template literal, its result will be computed, converted to a string, and included at that position. This example produces "_half of 100 is 50_".
+當你在模板字串中編寫 `${}` 內的內容時，其結果將被計算出來，轉換為字串，並包含在該位置。這個範例會產生 " _half of 100 is 50_ "。
 
-## Unary operators
+## 一元運算子
 
 {{index operator, "typeof operator", type}}
 
 Not all operators are symbols. Some are written as words. One example is the `typeof` operator, which produces a string value naming the type of the value you give it.
+並非所有運算子都是符號。有些是用文字編寫的。一個範例是 `typeof` 運算子，它會產生一個表示你提供給它的值的型別的字串值。
 
 ```
 console.log(typeof 4.5)
@@ -223,28 +225,28 @@ console.log(typeof "x")
 
 {{id "console.log"}}
 
-We will use `console.log` in example code to indicate that we want to see the result of evaluating something. More about that in the [next chapter](program_structure).
+我們將在範例程式碼中使用 `console.log`，表示我們想看到某些東西求值的結果。[下一章](program_structure)會詳細說明這一點。
 
 {{index negation, "- operator", "binary operator", "unary operator"}}
 
-The other operators shown so far in this chapter all operated on two values, but `typeof` takes only one. Operators that use two values are called _binary_ operators, while those that take one are called _unary_ operators. The minus operator can be used both as a binary operator and as a unary operator.
+到目前為止，本章中顯示的其他運算子都對兩個值進行操作，但 `typeof` 只接受一個值。使用兩個值的運算子稱為二元運算子（ _binary_  operator），而只接受一個值的運算子稱為一元運算子（ _unary_ operator）。減號運算子可以同時用作二元運算子和一元運算子。
 
 ```
 console.log(- (10 - 2))
 // → -8
 ```
 
-## Boolean values
+## 布林值
 
 {{index Boolean, operator, true, false, bit}}
 
-It is often useful to have a value that distinguishes between only two possibilities, like "yes" and "no" or "on" and "off". For this purpose, JavaScript has a _Boolean_ type, which has just two values, true and false, written as those words.
+通常區分只有兩種可能性的值會很有用，例如「是」和「否」，或「開」和「關」。為此，JavaScript 有一個布林（Boolean）型別，它只有兩個值，true 和 false，以這些文字編寫。
 
-### Comparison
+### 比較
 
 {{index comparison}}
 
-Here is one way to produce Boolean values:
+以下是產生布林值的一種方式：
 
 ```
 console.log(3 > 2)
@@ -255,9 +257,9 @@ console.log(3 < 2)
 
 {{index [comparison, "of numbers"], "> operator", "< operator", "greater than", "less than"}}
 
-The `>` and `<` signs are the traditional symbols for "is greater than" and "is less than", respectively. They are binary operators. Applying them results in a Boolean value that indicates whether they hold true in this case.
+`>` 和 `<` 符號分別是「大於」和「小於」的傳統符號。它們是二元運算子。套用它們會得到一個布林值，表示在這種情況下它們是否成立。
 
-Strings can be compared in the same way:
+字串也可以用同樣的方式比較：
 
 ```
 console.log("Aardvark" < "Zoroaster")
@@ -266,11 +268,11 @@ console.log("Aardvark" < "Zoroaster")
 
 {{index [comparison, "of strings"]}}
 
-The way strings are ordered is roughly alphabetic but not really what you'd expect to see in a dictionary: uppercase letters are always "less" than lowercase ones, so `"Z" < "a"`, and nonalphabetic characters (!, -, and so on) are also included in the ordering. When comparing strings, JavaScript goes over the characters from left to right, comparing the ((Unicode)) codes one by one.
+字串的排序方式大致上是按字母順序，但不完全是你在字典中看到的順序：大寫字母總是「小於」小寫字母，所以 `"Z" < "a"`，而非字母的字元（!、- 等）也包括在排序中。在比較字串時，JavaScript 會從左到右遍歷字元，逐一比較 Unicode 程式碼。
 
 {{index equality, ">= operator", "<= operator", "== operator", "!= operator"}}
 
-Other similar operators are `>=` (greater than or equal to), `<=` (less than or equal to), `==` (equal to), and `!=` (not equal to).
+其他類似的運算子是 `>=`（大於或等於）、`<=`（小於或等於）、`==`（等於）和 `!=`（不等於）。
 
 ```
 console.log("Garnet" != "Ruby")
@@ -282,23 +284,25 @@ console.log("Pearl" == "Amethyst")
 {{index [comparison, "of NaN"], NaN}}
 
 There is only one value in JavaScript that is not equal to itself, and that is `NaN` ("not a number").
+JavaScript 中只有一個值不等於自身，那就是 NaN（不是一個數字）。
 
 ```
 console.log(NaN == NaN)
 // → false
 ```
 
-`NaN` is supposed to denote the result of a nonsensical computation, and as such, it isn't equal to the result of any _other_ nonsensical computations.
+`NaN` 應該表示無意義計算的結果，因此它不等於任何其他無意義的計算結果。
 
-### Logical operators
+### 邏輯運算子
 
 {{index reasoning, "logical operators"}}
 
-There are also some operations that can be applied to Boolean values themselves. JavaScript supports three logical operators: _and_, _or_, and _not_. These can be used to "reason" about Booleans.
+也有一些運算可以套用到布林值本身。JavaScript 支援三個邏輯運算子： _and_ 、 _or_ 和 _not_ 。這些運算子可用於對布林值進行「推理」。
+
 
 {{index "&& operator", "logical and"}}
 
-The `&&` operator represents logical _and_. It is a binary operator, and its result is true only if both the values given to it are true.
+`&&` 運算子表示邏輯 and。它是一個二元運算子，只有在給它的兩個值都是 true 時，其結果才為 true。
 
 ```
 console.log(true && false)
@@ -309,7 +313,7 @@ console.log(true && true)
 
 {{index "|| operator", "logical or"}}
 
-The `||` operator denotes logical _or_. It produces true if either of the values given to it is true.
+`||` 運算子表示邏輯 _or_。如果給它的值中有一個是 true，它就會產生 true。
 
 ```
 console.log(false || true)
@@ -321,10 +325,11 @@ console.log(false || false)
 {{index negation, "! operator"}}
 
 _Not_ is written as an exclamation mark (`!`). It is a unary operator that flips the value given to it—`!true` produces `false` and `!false` gives `true`.
+_Not_ 寫作驚嘆號（`!`）。它是一個一元運算子，會反轉給它的值——`!true` 產生 `false`，`!false` 會給出 `true`。
 
 {{index precedence}}
 
-When mixing these Boolean operators with arithmetic and other operators, it is not always obvious when parentheses are needed. In practice, you can usually get by with knowing that of the operators we have seen so far, `||` has the lowest precedence, then comes `&&`, then the comparison operators (`>`, `==`, and so on), and then the rest. This order has been chosen such that, in typical expressions like the following one, as few parentheses as possible are necessary:
+當將這些布林運算子、算術運算子以及其他運算子混合使用時的情況，什麼時候需要括號就不明顯了。實際上，通常你只需要知道到目前為止我們看過的運算子中，`||` 的優先順序最低，然後是 `&&`，然後是比較運算子（`>`、`==` 等），最後是其餘的運算子。這個順序是精心選擇的，使下方這樣典型的表達式中，儘可能少用括號：
 
 ```{meta: "expr"}
 1 + 1 == 2 && 10 * 10 > 50
@@ -332,7 +337,7 @@ When mixing these Boolean operators with arithmetic and other operators, it is n
 
 {{index "conditional execution", "ternary operator", "?: operator", "conditional operator", "colon character", "question mark"}}
 
-The last logical operator we will look at is not unary, not binary, but _ternary_, operating on three values. It is written with a question mark and a colon, like this:
+我們要看的最後一個邏輯運算子不是一元的，也不是二元的，而是三元的，對三個值進行操作。它寫作問號和冒號，像這樣：
 
 ```
 console.log(true ? 1 : 2);
@@ -341,23 +346,23 @@ console.log(false ? 1 : 2);
 // → 2
 ```
 
-This one is called the _conditional_ operator (or sometimes just _the ternary operator_ since it is the only such operator in the language). The operator uses the value to the left of the question mark to decide which of the two other values to "pick". If you write `a ? b : c`, the result will be `b` when `a` is true and `c` otherwise.
+這個運算子被稱為條件運算子（有時也簡稱為三元運算子，因為它是語言中唯一的三元運算子）。它使用問號左邊的值來決定「選擇」另外兩個值中的哪一個。如果你寫 `a ? b : c`，當 `a` 為 true 時結果將是 `b`，否則結果將是 `c`。
 
-## Empty values
+## 空值
 
 {{index undefined, null}}
 
-There are two special values, written `null` and `undefined`, that are used to denote the absence of a _meaningful_ value. They are themselves values, but they carry no information.
+有兩個特殊的值，寫作 `null` 和 `undefined`，用於表示沒有有意義的值。它們本身就是值，但不攜帶任何資訊。
 
-Many operations in the language that don't produce a meaningful value yield `undefined` simply because they have to yield _some_ value.
+語言中許多不產生有意義值的操作會產生 `undefined`，僅僅是因為它們必須產生某個值。
 
-The difference in meaning between `undefined` and `null` is an accident of JavaScript's design, and it doesn't matter most of the time. In cases where you actually have to concern yourself with these values, I recommend treating them as mostly interchangeable.
+`undefined` 和 `null` 在意義上的區別是 JavaScript 設計上的一個意外，大多數時候這並不重要。在實際必須關注這些值的情況下，我建議將它們視為大致可以互換。
 
-## Automatic type conversion
+## 自動型別轉換
 
 {{index NaN, "type coercion"}}
 
-In the Introduction, I mentioned that JavaScript goes out of its way to accept almost any program you give it, even programs that do odd things. This is nicely demonstrated by the following expressions:
+在介紹中，我提到 JavaScript 竭盡全力接受你提供給它的幾乎任何程式，即使是做奇怪事情的程式。下面的表達式很好地展示了這一點：
 
 ```
 console.log(8 * null)
@@ -374,15 +379,15 @@ console.log(false == 0)
 
 {{index "+ operator", arithmetic, "* operator", "- operator"}}
 
-When an operator is applied to the "wrong" type of value, JavaScript will quietly convert that value to the type it needs, using a set of rules that often aren't what you want or expect. This is called _((type coercion))_. The `null` in the first expression becomes `0` and the `"5"` in the second expression becomes `5` (from string to number). Yet in the third expression, `+` tries string concatenation before numeric addition, so the `1` is converted to `"1"` (from number to string).
+當運算子套用到「錯誤」型別的值時，JavaScript 會悄悄地將該值轉換為它需要的型別，使用一組通常不是你想要或期望的規則。這被稱為型別強制轉換（type coercion）。第一個表達式中的 `null` 變成了 0，第二個表達式中的 `"5"` 變成了 `5`（從字串到數字）。然而在第三個表達式中，`+` 會在進行數值相加之前嘗試字串串接，所以 `1` 被轉換為 `"1"`（從數字到字串）。
 
 {{index "type coercion", [number, "conversion to"]}}
 
-When something that doesn't map to a number in an obvious way (such as `"five"` or `undefined`) is converted to a number, you get the value `NaN`. Further arithmetic operations on `NaN` keep producing `NaN`, so if you find yourself getting one of those in an unexpected place, look for accidental type conversions.
+當一些無法以明顯方式對應到數字的東西（例如 `"five"` 或 undefined）被轉換為數字時，你會得到值 `NaN`。對 `NaN` 進行進一步的算術運算會持續產生 `NaN`，所以如果你在意外的地方得到了 `NaN`，請尋找意外的型別轉換。
 
 {{index null, undefined, [comparison, "of undefined values"], "== operator"}}
 
-When comparing values of the same type using the `==` operator, the outcome is easy to predict: you should get true when both values are the same, except in the case of `NaN`. But when the types differ, JavaScript uses a complicated and confusing set of rules to determine what to do. In most cases, it just tries to convert one of the values to the other value's type. However, when `null` or `undefined` occurs on either side of the operator, it produces true only if both sides are one of `null` or `undefined`.
+當使用 `==` 運算子比較相同型別的值時，結果很容易預測：當兩個值相同時，你應該得到 true，除了 `NaN` 的情況。但是當型別不同時，JavaScript 會使用一組複雜且令人困惑的規則來決定要做什麼。在大多數情況下，它只是試圖將其中一個值轉換為另一個值的型別。然而，當運算子任一側出現 `null` 或 `undefined` 時，只有在兩側都是 `null` 或 `undefined` 的情況下，它才會產生 true。
 
 ```
 console.log(null == undefined);
@@ -391,24 +396,23 @@ console.log(null == 0);
 // → false
 ```
 
-That behavior is often useful. When you want to test whether a value has a real value instead of `null` or `undefined`, you can compare it to `null` with the `==` or `!=` operator.
+當你想測試一個值是否有真正的值，而不是 `null` 或 `undefined` 時，你可以使用 `==` 或 `!=` 運算子將其與 `null` 進行比較，這個方法很有用。
 
 {{index "type coercion", [Boolean, "conversion to"], "=== operator", "!== operator", comparison}}
 
-What if you want to test whether something refers to the precise value `false`? Expressions like `0 == false` and `"" == false` are also true because of automatic type conversion. When you do _not_ want any type conversions to happen, there are two additional operators: `===` and `!==`. The first tests whether a value is _precisely_ equal to the other, and the second tests whether it is not precisely equal. Thus `"" === false` is false as expected.
+但如果你想測試某個東西是否準確地引用值 `false` 呢？由於自動型別轉換，像 `0 == false` 和 `"" == false` 這樣的表達式也為 true。當你不希望發生任何型別轉換時，還有兩個額外的運算子：`===` 和 `!==`。第一個運算子測試一個值是否精確地等於另一個值，第二個運算子測試它是否不精確地等於另一個值。因此， `"" === false` 如預期般為 false。
 
-I recommend using the three-character comparison operators defensively to prevent unexpected type conversions from tripping you up. But when you're certain the types on both sides will be the same, there is no problem with using the shorter operators.
+我建議防禦性地使用三個字元的比較運算子，以防止意外的型別轉換絆倒你。但是當你確定兩側的型別將是相同的時候，使用較短的運算子就沒有問題。
 
-### Short-circuiting of logical operators
+### 邏輯運算子的特殊情況
 
 {{index "type coercion", [Boolean, "conversion to"], operator}}
 
-The logical operators `&&` and `||` handle values of different types in a peculiar way. They will convert the value on their left side to Boolean type in order to decide what to do, but depending on the operator and the result of that conversion, they will return either the _original_ left-hand value or the right-hand value.
+邏輯運算子 `&&` 和 `||` 以一種特殊的方式處理不同型別的值。它們會將其左側的值轉換為布林型別，以決定要做什麼，但根據運算子和轉換的結果，它們將返回原始的左側值或右側值。
 
 {{index "|| operator"}}
 
-The `||` operator, for example, will return the value to its left when that value can be converted to true and will return the value on its right otherwise. This has the expected effect when the values are Boolean and does something analogous for values of other types.
-
+例如，`||` 運算子在其左側的值可以轉換為 true 時將返回該值，否則將返回其右側的值。當值是布林值時，這具有預期的效果，並對其他型別的值進行類似的操作。
 ```
 console.log(null || "user")
 // → user
@@ -418,12 +422,12 @@ console.log("Agnes" || "user")
 
 {{index "default value"}}
 
-We can use this functionality as a way to fall back on a default value. If you have a value that might be empty, you can put `||` after it with a replacement value. If the initial value can be converted to false, you'll get the replacement instead. The rules for converting strings and numbers to Boolean values state that `0`, `NaN`, and the empty string (`""`) count as `false`, while all the other values count as `true`. That means `0 || -1` produces `-1`, and `"" || "!?"` yields `"!?"`.
+
+我們可以利用這個功能作為退回到預設值的一種方式。如果你有一個可能為空的值，你可以在它後面放一個 `||` 和一個替代值。如果初始值可以轉換為 `false`，你將得到替代值。將字串和數字轉換為布林值的規則規定，`0`、`NaN` 和空字串(`""`) 視為 false,而所有其他值視為 true。這意味著 `0 || -1` 會產生 `-1`，而 `"" || "!?"` 會產生 `"!?"`。
 
 {{index "?? operator", null, undefined}}
 
-The `??` operator resembles `||`, but returns the value on the right only if the one on the left is null or undefined, not if it is some other value that can be converted to `false`. Often, this is preferable to the behavior of `||`.
-
+運算子 `??` 類似於 ||，但只有當左側的值是 null 或 undefined 時才返回右側的值，而不是在它可以轉換為 `false` 的其他值時。通常，這比 `||` 的行為還要好。
 ```
 console.log(0 || 100);
 // → 100
@@ -435,18 +439,19 @@ console.log(null ?? 100);
 
 {{index "&& operator"}}
 
-The `&&` operator works similarly but the other way around. When the value to its left is something that converts to false, it returns that value, and otherwise it returns the value on its right.
+運算子 `&&` 的工作方式類似，但方向相反。當其左側的值是可以轉換為 false 的東西時，它返回該值，否則它返回右側的值。
 
-Another important property of these two operators is that the part to their right is evaluated only when necessary. In the case of `true || X`, no matter what `X` is—even if it's a piece of program that does something _terrible_—the result will be true, and `X` is never evaluated. The same goes for `false && X`, which is false and will ignore `X`. This is called _((short-circuit evaluation))_.
+這兩個運算子的另一個重要特性是，只有在必要時才會評估它們右側的部分。在 `true || X` 的情況下，無論 `X` 是什麼——即使它是一段做可怕事情的程式——結果都將是 true，而且永遠不會評估 `X`。`false && X` 也是如此，它是 false 並且會忽略 `X`。這被稱為短路求值 _(short-circuit evaluation)_。
 
 {{index "ternary operator", "?: operator", "conditional operator"}}
 
-The conditional operator works in a similar way. Of the second and third values, only the one that is selected is evaluated.
+條件運算子的工作方式類似。第二個和第三個值中，只有被選中的那個會被求值。
 
-## Summary
+## 總結
 
 We looked at four types of JavaScript values in this chapter: numbers, strings, Booleans, and undefined values. Such values are created by typing in their name (`true`, `null`) or value (`13`, `"abc"`).
+在本章中,我們研究了四種 JavaScript 值：數字、字串、布林值和未定義值。通過輸入它們的名稱（`true`、`null`）或值（`13`、`"abc"`）來建立這些值。
 
-You can combine and transform values with operators. We saw binary operators for arithmetic (`+`, `-`, `*`, `/`, and `%`), string concatenation (`+`), comparison (`==`, `!=`, `===`, `!==`, `<`, `>`, `<=`, `>=`), and logic (`&&`, `||`, `??`), as well as several unary operators (`-` to negate a number, `!` to negate logically, and `typeof` to find a value's type) and a ternary operator (`?:`) to pick one of two values based on a third value.
+你可以用運算子組合和轉換值。我們看到了用於算術（`+`、`-`、`*`、`/` 和 `%`）、字串串接 (`+`)、比較（`==`、`!=`、`===`、`!==`、`<`、`>`、`<=` 和 `>=`）和邏輯（`&&` 、`||` 和 `??`）的二元運算子，以及幾個一元運算子(`-` 對數字取負、`!` 對邏輯值取反和 `typeof` 查找值的型別)和一個三元運算子(`?:`)根據第三個值選擇兩個值之一。
 
-This gives you enough information to use JavaScript as a pocket calculator but not much more. The [next chapter](program_structure) will start tying these expressions together into basic programs.
+這給了你足夠的資訊來將 JavaScript 用作袖珍計算機，但還不夠多。下一章將開始將這些表達式串在一起，組成基本的程式。
