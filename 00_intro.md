@@ -1,78 +1,78 @@
 {{meta {load_files: ["code/intro.js"]}}}
 
-# Introduction
+# 介紹
 
-{{quote {author: "Ellen Ullman", title: "Close to the Machine: Technophilia and its Discontents", chapter: true}
+{{quote {author: "艾倫・烏曼", title: "《接近機器：技術狂熱及其不滿》", chapter: true}
 
-We think we are creating the system for our own purposes. We believe we are making it in our own image... But the computer is not really like us. It is a projection of a very slim part of ourselves: that portion devoted to logic, order, rule, and clarity.
+我們認為我們正在為自己的目的打造系統。我們相信我們正在按照自己的想像創造它⋯⋯但電腦並不是真的像我們一樣。他是我們自己一小部分的投射，專注於邏輯、秩序、規則和清晰的部分。
 
 quote}}
 
 {{figure {url: "img/chapter_picture_00.jpg", alt: "Illustration of a screwdriver next to a circuit board of about the same size", chapter: "framed"}}}
 
-This is a book about instructing ((computer))s. Computers are about as common as screwdrivers today, but they are quite a bit more complex, and making them do what you want them to do isn't always easy.
+這是一本關於指導電腦的書，現在電腦跟螺絲起子一樣普及，但他們要複雜得多，要讓它照你們想要的方式運作，並不是非常容易。
 
-If the task you have for your computer is a common, well-understood one, such as showing you your email or acting like a calculator, you can open the appropriate ((application)) and get to work. But for unique or open-ended tasks, there often is no appropriate application.
+如果你要電腦完成的工作是收發電子郵件或是充當計算機，你只要打開對應的應用程式就可以開始了。但是對於獨特或者開放式的任務，往往沒有適合的應用程式可以用。
 
-That is where ((programming)) may come in. _Programming_ is the act of constructing a _program_—a set of precise instructions telling a computer what to do. Because computers are dumb, pedantic beasts, programming is fundamentally tedious and frustrating.
+這時候程式語言撰寫就派上用場。「程式碼設計」(programming)就是編寫「程式」(program)的過程——提供一組精確的指令告訴電腦要做什麼。因為電腦是一個愚蠢、死板的怪獸，所以程式設計從根本上來說就是一件冗長且乏味的差事。
 
 {{index [programming, "joy of"], speed}}
 
-Fortunately, if you can get over that fact—and maybe even enjoy the rigor of thinking in terms that dumb machines can deal with—programming can be rewarding. It allows you to do things in seconds that would take _forever_ by hand. It is a way to make your computer tool do things that it couldn't do before. On top of that, it makes for a wonderful game of puzzle solving and abstract thinking.
+幸運的是，如果你能夠接受這個事實——甚至可以享受愚蠢機器能夠理解的方式來處理嚴謹思考的過程——程式設計也是蠻有成就感的。它讓你在幾秒鐘內完成原本靠手工需要花費很長時間的事情。它讓你的電腦這個工具能夠做到以前做不到的事。最重要的是，它還是鍛鍊解謎能力和抽象思考的絕佳遊戲。
 
-Most programming is done with ((programming language))s. A _programming language_ is an artificially constructed language used to instruct computers. It is interesting that the most effective way we've found to communicate with a computer borrows so heavily from the way we communicate with each other. Like human languages, computer languages allow words and phrases to be combined in new ways, making it possible to express ever new concepts.
+大部分的程式設計都是透過程式語言來完成。「程式語言」是一種人造語言，用來指示電腦做事。有趣的是，我們發現與電腦溝通最有效的方式，就是靠著大量借用我們彼此之間溝通的方式。就像人類的語言一樣，與電腦溝通的語言允許使用單字或是片語，以新的方式組合，從而可以表達新的概念。
 
 {{index [JavaScript, "availability of"], "casual computing"}}
 
-At one point, language-based interfaces, such as the BASIC and DOS prompts of the 1980s and 1990s, were the main method of interacting with computers. For routine computer use, these have largely been replaced with visual interfaces, which are easier to learn but offer less freedom. But if you know where to look, the languages are still there. One of them, _JavaScript_, is built into every modern web ((browser))—and is thus available on almost every device.
+曾經在某個時期（例如 1980 和 1990 年代的 BASIC 和 DOS 的提示詞）是跟電腦互動的主要方式。對於日常的電腦使用，這些介面大部分已經被視覺化介面取代，後者更容易學習，但自由度比較低。但如果你知道要去哪裡去找，會了解這些語言仍然存在。其中一種語言「JavaScript」，內建於每一個現代的網頁瀏覽器中，因此每一個裝置都可以使用。
 
 {{indexsee "web browser", browser}}
 
-This book will try to make you familiar enough with this language to do useful and amusing things with it.
+這本書將試著讓你對這個語言有足夠的了解，從而能夠用它去做一些有用和有趣的事。
 
-## On programming
+## 關於程式設計
 
 {{index [programming, "difficulty of"]}}
 
-Besides explaining JavaScript, I will introduce the basic principles of programming. Programming, it turns out, is hard. The fundamental rules are simple and clear, but programs built on top of these rules tend to become complex enough to introduce their own rules and complexity. You're building your own maze, in a way, and you can easily get lost in it.
+除了解釋 JavaScript 之外，我還會介紹程式設計的基本原理。事實證明，撰寫程式碼是很困難的。基本規則雖然簡單明確，但基於這些規則所建立的程式，往往會變得非常複雜，甚至從中引入自己的規則和複雜性。在某種程度上，你正在建造自己的迷宮，而且很容易在裡面迷路。
 
 {{index learning}}
 
-There will be times when reading this book feels terribly frustrating. If you are new to programming, there will be a lot of new material to digest. Much of this material will then be _combined_ in ways that require you to make additional connections.
+在讀這本書的過程之中，有時候你會感到非常挫折。如果你是寫程式的新手，你將會需要消化大量的新資訊。而這些資訊之中，有許多會需要你以建立額外連結的方式組合在一起。
 
-It is up to you to make the necessary effort. When you are struggling to follow the book, do not jump to any conclusions about your own capabilities. You are fine—you just need to keep at it. Take a break, reread some material, and make sure you read and understand the example programs and ((exercises)). Learning is hard work, but everything you learn is yours and will make further learning easier.
+你需要付出必要的努力，當你在努力跟上這本書的內容時，不要對自己的能力妄下結論。你沒問題的——你只需要堅持下去。休息一下，重讀一些內容，並確保你閱讀和理解範例程式碼、練習題。學習是一件苦差事，但你學到的每一樣東西都是屬於你的，而且會讓之後的學習變得更容易。
 
-{{quote {author: "Ursula K. Le Guin", title: "The Left Hand of Darkness"}
+{{quote {author: "厄休拉・K・勒古恩", title: " 《黑暗的左手》"}
 
 {{index "Le Guin, Ursula K."}}
 
-When action grows unprofitable, gather information; when information grows unprofitable, sleep.
+當行動變得無利可圖的時候，就去收集資訊；當資訊變得無利可圖的時候，就去睡覺。
 
 quote}}
 
 {{index [program, "nature of"], data}}
 
-A program is many things. It is a piece of text typed by a programmer, it is the directing force that makes the computer do what it does, it is data in the computer's memory, and at the same time it controls the actions performed on this memory. Analogies that try to compare programs to familiar objects tend to fall short. A superficially fitting one is to compare a program to a machine—lots of separate parts tend to be involved, and to make the whole thing tick, we have to consider the ways in which these parts interconnect and contribute to the operation of the whole.
+程式是一個多面向的存在，它是程式設計師輸入的一段文字，是指揮電腦運作的指令，是儲存在電腦記憶體中的資料，同時也控制這些記憶體進行的任何操作。若試圖將程式比喻我們熟悉的事物，往往會不盡貼切。一個表面上還算類似的類比，是把程式比喻成一部機器——它通常包含許多獨立的零件，而要讓整個機器運轉起來，我們必須考慮這些零件是如何相互連接、共同協作。
 
-A ((computer)) is a physical machine that acts as a host for these immaterial machines. Computers themselves can do only stupidly straightforward things. The reason they are so useful is that they do these things at an incredibly high ((speed)). A program can ingeniously combine an enormous number of these simple actions to do very complicated things.
+一台電腦就是一個物理機器，它扮演著這些抽象機器的主人。電腦本身只能執行一些非常直觀、簡單的操作。但它們之所以如此有用，是因為它們能以難以置信的速度執行這些操作。一個程式可以巧妙地將大量這樣簡單的操作組合起來，從而完成非常複雜的任務。
 
 {{index [programming, "joy of"]}}
 
-A program is a building of thought. It is costless to build, it is weightless, and it grows easily under our typing hands. But as a program grows, so does its ((complexity)). The skill of programming is the skill of building programs that don't confuse yourself. The best programs are those that manage to do something interesting while still being easy to understand.
+程式是一種思想的建築。它的建造成本不高，也沒有重量，在我們敲擊鍵盤當下就能輕易地成長。但隨著程式的成長，它的複雜性也隨之增加。程式設計的技巧，就是建構那些不會讓自己感到困惑的程式技巧。最好的程式是能完成有趣任務的同時，仍然保持簡單易懂。
 
 {{index "programming style", "best practices"}}
 
-Some programmers believe that this complexity is best managed by using only a small set of well-understood techniques in their programs. They have composed strict rules ("best practices") prescribing the form programs should have and carefully stay within their safe little zone.
+有些程式設計師認為，管理複雜性的最好的方式，就是在編寫程式時只使用少數幾種易於理解的技術。他們制定了嚴格的規則(最佳實踐)，規定程式應該遵循的形式，並小心翼翼地待在自己的安全區域內。
 
 {{index experiment}}
 
-This is not only boring, it is ineffective. New problems often require new solutions. The field of programming is young and still developing rapidly, and it is varied enough to have room for wildly different approaches. There are many terrible mistakes to make in program design, and you should go ahead and make them at least once so that you understand them. A sense of what a good program looks like is developed with practice, not learned from a list of rules.
+這種做法不僅乏味，而且沒有效果。新的問題通常需要新的解決方案。程式設計的領域還很年輕，並且在快速發展，其變化之大足以容納截然不同的方法。在程式設計中，可能會犯許多可怕的錯誤，但你應該至少犯一次，這樣才能真正理解它們。對好的程式應該是什麼樣子的認識，是通過實踐來培養的，而不是從一系列的規則清單中學來的。
 
-## Why language matters
+## 為什麼語言很重要
 
 {{index "programming language", "machine code", "binary data"}}
 
-In the beginning, at the birth of computing, there were no programming languages. Programs looked something like this:
+在剛發明電腦，還沒有程式設計語言。程式看起來像這樣：
 
 ```{lang: null}
 00110001 00000000 00000000
@@ -88,29 +88,29 @@ In the beginning, at the birth of computing, there were no programming languages
 
 {{index [programming, "history of"], "punch card", complexity}}
 
-This is a program to add the numbers from 1 to 10 together and print the result: `1 + 2 + ... + 10 = 55`. It could run on a simple hypothetical machine. To program early computers, it was necessary to set large arrays of switches in the right position or punch holes in strips of cardboard and feed them to the computer. You can imagine how tedious and error-prone this procedure was. Even writing simple programs required much cleverness and discipline. Complex ones were nearly inconceivable.
+這是一個把 1 到 10 的數字相加並列印結果的程式：`1 + 2 + ... + 10 = 55`。它可以在一台簡單的假想機器上執行。要對早期電腦進行程式設計，必須將大量的開關設置到正確的位置，或是在紙板上打孔再餵給電腦。你可以想像這個過程有多枯燥乏味，而且很容易出錯。即使是編寫簡單的程式，都需要相當的機智和紀律。而複雜的程式幾乎是難以想像的。
 
 {{index bit, "wizard (mighty)"}}
 
-Of course, manually entering these arcane patterns of bits (the ones and zeros) did give the programmer a profound sense of being a mighty wizard. And that has to be worth something in terms of job satisfaction.
+當然，手動輸入這些深奧的位元模式(那些 0 和 1)的確讓程式設計師覺得自己是一個強大巫師的感覺。對於工作滿足感而言，這點也算有點價值。
 
 {{index memory, instruction}}
 
-Each line of the previous program contains a single instruction. It could be written in English like this:
+前面那個程式的每一行都包含一條指令。用英文來寫的話，大概是這樣：
 
- 1. Store the number 0 in memory location 0.
- 2. Store the number 1 in memory location 1.
- 3. Store the value of memory location 1 in memory location 2.
- 4. Subtract the number 11 from the value in memory location 2.
- 5. If the value in memory location 2 is the number 0, continue with instruction 9.
- 6. Add the value of memory location 1 to memory location 0.
- 7. Add the number 1 to the value of memory location 1.
- 8. Continue with instruction 3.
- 9. Output the value of memory location 0.
+ 1. 把數字 0 存到記憶體位置 0。
+ 2. 把數字 1 存到記憶體位置 1。
+ 3. 把記憶體位置 1 的值存到記憶體位置 2。
+ 4. 從記憶體位置 2 的值減去數字 11。
+ 5. 如果記憶體位置 2 的值是數字 0,就繼續執行指令 9。
+ 6. 把記憶體位置 1 的值加到記憶體位置 0。
+ 7. 把數字 1 加到記憶體位置 1 的值。
+ 8. 繼續執行指令 3。
+ 9. 輸出記憶體位置 0 的值。
 
 {{index readability, naming, binding}}
 
-Although that is already more readable than the soup of bits, it is still rather obscure. Using names instead of numbers for the instructions and memory locations helps:
+雖然這樣已經比一堆位元好讀多了，但還是相當晦澀。如果用名稱取代指令和記憶體位置的編號，會有幫助
 
 ```{lang: "null"}
  Set “total” to 0.
@@ -128,9 +128,10 @@ Although that is already more readable than the soup of bits, it is still rather
 
 {{index loop, jump, "summing example"}}
 
-Can you see how the program works at this point? The first two lines give two memory locations their starting values: `total` will be used to build up the result of the computation, and `count` will keep track of the number that we are currently looking at. The lines using `compare` are probably the most confusing ones. The program wants to see whether `count` is equal to 11 to decide whether it can stop running. Because our hypothetical machine is rather primitive, it can only test whether a number is zero and make a decision based on that. It therefore uses the memory location labeled `compare` to compute the value of `count - 11` and makes a decision based on that value. The next two lines add the value of `count` to the result and increment `count` by 1 every time the program decides that `count` is not 11 yet.
+你現在可以看出這個程式是如何運作的嗎？前兩行給了兩個記憶體位置它們的初始值：`total` 會被用來累積運算的結果，而 count 會記錄我們目前處理到的數字。使用 `compare` 的那幾行可能是最令人困惑的。這個程式想要看看 `count` 是否等於 11，以決定是否可以停止執行。因為我們假想的機器非常原始，它只能檢測一個數是否為零，並根據那個值做決定。所以它使用標記為 compare 的記憶體位置來計算 `count - 11` 的值，並根據那個值做決定。接下來的兩行，在程式決定 `count` 還不是 11 的每一次迴圈中，把 `count` 的值加到結果，並把 `count` 的值加 1。
 
-Here is the same program in JavaScript:
+
+以下是同一個程式的 JavaScript 版本：
 
 ```
 let total = 0, count = 1;
@@ -144,15 +145,14 @@ console.log(total);
 
 {{index "while loop", loop, [braces, block]}}
 
-This version gives us a few more improvements. Most importantly, there is no need to specify the way we want the program to jump back and forth anymore—the `while` construct takes care of that. It continues executing the block (wrapped in braces) below it as long as the condition it was given holds. That condition is `count <= 10`, which means “the count is less than or equal to 10”. We no longer have to create a temporary value and compare that to zero, which was just an uninteresting detail. Part of the power of programming languages is that they can take care of uninteresting details for us.
-
+這個版本帶來了一些改進。最重要的是，我們不再需要指定程式該如何來回跳躍了——`while` 結構會處理這件事。只要給它的條件成立，它就會繼續執行下方的區塊(用大括號包起來)。條件是 `count <= 10`，意思是「count 小於等於 10」。我們不再需要創造一個臨時值並與零比較，那只是一個無關緊要的細節。程式語言的一部分威力在於,它們可以為我們處理無關緊要的細節。
 {{index "console.log"}}
 
-At the end of the program, after the `while` construct has finished, the `console.log` operation is used to write out the result.
+在程式的最後，在 `while` 結構結束之後。`console.log` 操作被用來輸出結果。
 
 {{index "sum function", "range function", abstraction, function}}
 
-Finally, here is what the program could look like if we happened to have the convenient operations `range` and `sum` available, which respectively create a ((collection)) of numbers within a range and compute the sum of a collection of numbers:
+最後，如果我們剛好有 `range` 和 `sum` 這些方便的操作可用，程式可能會是這個樣子：
 
 ```{startCode: true}
 console.log(sum(range(1, 10)));
@@ -161,13 +161,15 @@ console.log(sum(range(1, 10)));
 
 {{index readability}}
 
-The moral of this story is that the same program can be expressed in both long and short, unreadable and readable ways. The first version of the program was extremely obscure, whereas this last one is almost English: `log` the `sum` of the `range` of numbers from 1 to 10. (We will see in [later chapters](data) how to define operations like `sum` and `range`.)
+`range` 會創造一個範圍內的數字集合，而 `sum` 會計算一個數字集合的總和。
+這個故事的寓意是，同一個程式可以用又長又難讀，或是又短又好讀的方式來表達。第一個版本的程式非常晦澀，而最後這個版本幾乎就像英語：把 1 到 10 的 range(範圍)加總(sum)，然後 log(印出)結果。(我們會在 [後面的章節](data)看到如何定義像 sum 和 range 這樣的操作。)
+
 
 {{index ["programming language", "power of"], composability}}
 
-A good programming language helps the programmer by allowing them to talk about the actions that the computer has to perform on a higher level. It helps omit details, provides convenient building blocks (such as `while` and `console.log`), allows you to define your own building blocks (such as `sum` and `range`), and makes those blocks easy to compose.
+一個好的程式設計語言透過允許程式設計師以更高的層次來描述電腦需要執行的動作，幫助了程式設計師。它有助於省略細節，提供了方便的建築區塊(例如 while 和 console.log)，讓你定義自己的建築區塊(例如 sum 和 range)，並讓這些區塊易於組合。
 
-## What is JavaScript?
+## 什麼是 JavaScript?
 
 {{index history, Netscape, browser, "web application", JavaScript, [JavaScript, "history of"], "World Wide Web"}}
 
@@ -175,47 +177,47 @@ A good programming language helps the programmer by allowing them to talk about 
 
 {{indexsee Web, "World Wide Web"}}
 
-JavaScript was introduced in 1995 as a way to add programs to web pages in the Netscape Navigator browser. The language has since been adopted by all other major graphical web browsers. It has made modern web applications possible—that is, applications with which you can interact directly without doing a page reload for every action. JavaScript is also used in more traditional websites to provide various forms of interactivity and cleverness.
+JavaScript 是在 1995 年作為一種在 Netscape Navigator 瀏覽器中為網頁加入程式的方式。此後，這個語言被所有其他主要的圖形化網頁瀏覽器採用。它實現了現代的網頁應用程式——也就是那些你可以直接互動而不需要為每個動作重新載入頁面的應用程式。JavaScript 也被用在更傳統的網站中，以提供各種形式的互動性和巧思。
 
 {{index Java, naming}}
 
-It is important to note that JavaScript has almost nothing to do with the programming language named Java. The similar name was inspired by marketing considerations rather than good judgment. When JavaScript was being introduced, the Java language was being heavily marketed and was gaining popularity. Someone thought it was a good idea to try to ride along on this success. Now we are stuck with the name.
+重要的是要注意，JavaScript 與名為 Java 的程式設計語言幾乎沒有關係。相似的名稱更多是出於行銷考量，而不是一個好的判斷。當 JavaScript 被引入時，Java 語言正在大力推廣，並且越來越受歡迎。有人認為試圖搭上這股成功的順風車是個好主意。現在我們就被這個名字卡住了。
 
 {{index ECMAScript, compatibility}}
 
-After its adoption outside of Netscape, a ((standard)) document was written to describe the way the JavaScript language should work so that the various pieces of software that claimed to support JavaScript could make sure they actually provided the same language. This is called the ECMAScript standard, after the Ecma International organization that conducted the standardization. In practice, the terms ECMAScript and JavaScript can be used interchangeably—they are two names for the same language.
+在 JavaScript 被 Netscape 以外的機構採用後，有一份((標準))文件被撰寫出來，描述 JavaScript 語言應該如何運作，這樣宣稱支援 JavaScript 的各種軟體就能確保它們真的提供了相同的語言。這就是 ECMAScript 標準，以進行標準化的 Ecma International 組織命名。在實務上，ECMAScript 和 JavaScript 這兩個術語可以互換使用——它們是同一種語言的兩個名稱。
 
 {{index [JavaScript, "weaknesses of"], debugging}}
 
-There are those who will say _terrible_ things about JavaScript. Many of these things are true. When I was required to write something in JavaScript for the first time, I quickly came to despise it. It would accept almost anything I typed but interpret it in a way that was completely different from what I meant. This had a lot to do with the fact that I did not have a clue what I was doing, of course, but there is a real issue here: JavaScript is ridiculously liberal in what it allows. The idea behind this design was that it would make programming in JavaScript easier for beginners. In actuality, it mostly makes finding problems in your programs harder because the system will not point them out to you.
+有人會說 JavaScript 很糟糕。當中很多都是真的。當我第一次被要求用 JavaScript 寫點東西時，我很快就開始鄙視它。它幾乎接受我輸入的任何東西，但卻以一種與我的意圖完全不同的方式解讀。這在很大程度上是因為我根本不知道自己在做什麼，但這裡確實存在一個真正的問題：JavaScript 在允許的事情上自由到了荒謬的地步。這種設計背後的想法是，它會讓初學者更容易學習 JavaScript 程式設計。但實際上，它主要是讓你更難找出程式中的問題，因為系統不會指出這些問題。
 
 {{index [JavaScript, "flexibility of"], flexibility}}
 
-This flexibility also has its advantages, though. It leaves room for techniques that are impossible in more rigid languages and makes for a pleasant, informal style of programming. After ((learning)) the language properly and working with it for a while, I have come to actually _like_ JavaScript.
+不過,這種彈性也有其優點。它為一些在更嚴格的語言中不可能實現的技術留出了空間，並形成了一種愉悅、隨性的程式撰寫風格。在正確地((學習))了這門語言並使用了一段時間後，我開始真正喜歡上 JavaScript。
 
 {{index future, [JavaScript, "versions of"], ECMAScript, "ECMAScript 6"}}
 
-There have been several versions of JavaScript. ECMAScript version 3 was the widely supported version during JavaScript's ascent to dominance, roughly between 2000 and 2010. During this time, work was underway on an ambitious version 4, which planned a number of radical improvements and extensions to the language. Changing a living, widely used language in such a radical way turned out to be politically difficult, and work on the version 4 was abandoned in 2008. A much less ambitious version 5, which made only some uncontroversial improvements, came out in 2009. In 2015, version 6 came out, a major update that included some of the ideas planned for version 4. Since then we've had new, small updates every year.
+JavaScript 有過數個版本。ECMAScript 第 3 版是 JavaScript 稱霸期間被廣泛支援的版本，大約在 2000 年到 2010 年之間。在此期間，一個雄心勃勃的第 4 版正在開發中，計劃對這門語言進行一些激進的改進和擴展。要以如此激進的方式改變一門活躍且被廣泛使用的語言，已經證明它在政策實施上是困難的，因此第 4 版的工作在 2008 年被放棄。一個不那麼雄心勃勃的第 5 版在 2009 年問世，它只做了一些無爭議的改進。2015 年，第 6 版發布，這是一次主要更新，包括了一些原本計劃用於第 4 版的點子。從那時起，我們每年都有新的小更新。
 
-The fact that JavaScript is evolving means that browsers have to constantly keep up. If you're using an older browser, it may not support every feature. The language designers are careful to not make any changes that could break existing programs, so new browsers can still run old programs. In this book, I'm using the 2023 version of JavaScript.
+JavaScript 正在不斷發展的事實意味著瀏覽器必須不斷跟上。如果你使用的是較舊的瀏覽器，它可能不支援所有功能。語言設計者會小心翼翼地避免做出任何可能破壞現有程式的改變，因此新的瀏覽器仍然可以運行舊的程式。在本書中，我使用的是 2023 年版的 JavaScript。
 
 {{index [JavaScript, "uses of"]}}
 
-Web browsers are not the only platforms on which JavaScript is used. Some databases, such as MongoDB and CouchDB, use JavaScript as their scripting and query language. Several platforms for desktop and server programming, most notably the ((Node.js)) project (the subject of [Chapter ?](node)), provide an environment for programming JavaScript outside of the browser.
+網頁瀏覽器並不是 JavaScript 的唯一使用平台。一些資料庫（如 MongoDB 和 CouchDB）使用 JavaScript 作為其腳本和查詢語言。一些桌面和伺服器程式設計平台，最著名的是 Node.js 專案（[章節 ?](node))），提供了在瀏覽器之外使用 JavaScript 進行程式設計的環境。
 
-## Code, and what to do with it
+## 程式碼以及如何使用它
 
 {{index "reading code", "writing code"}}
 
-_Code_ is the text that makes up programs. Most chapters in this book contain quite a lot of code. I believe reading code and writing ((code)) are indispensable parts of ((learning)) to program. Try to not just glance over the examples—read them attentively and understand them. This may be slow and confusing at first, but I promise that you'll quickly get the hang of it. The same goes for the ((exercises)). Don't assume you understand them until you've actually written a working solution.
+程式碼是構成程式的文字。本書大多數章節都包含相當多的程式碼。我相信閱讀程式碼和撰寫((程式碼))是((學習))程式設計不可或缺的部分。嘗試不要只是掃一眼範例——要專心閱讀並理解它們。一開始這可能會很慢，也很讓人困惑，但我保證你很快就會掌握訣竅。練習也是如此。在你真正撰寫出可運作的解答之前，不要以為你已經理解它們了。
 
 {{index interpretation}}
 
-I recommend you try your solutions to exercises in an actual JavaScript interpreter. That way, you'll get immediate feedback on whether what you are doing is working, and, I hope, you'll be tempted to ((experiment)) and go beyond the exercises.
+我建議你在真正的 JavaScript 直譯器中試試你的練習解答。這樣，你就能立即得到回饋，知道你的程式是否運作，而且我希望你會很想嘗試各種((實驗))，超越練習的範圍。
 
 {{if interactive
 
-When reading this book in your browser, you can edit (and run) all example programs by clicking them.
+在瀏覽器中閱讀本書時，你可以透過點擊範例程式來編輯（和運行）它們。
 
 if}}
 
@@ -223,37 +225,38 @@ if}}
 
 {{index download, sandbox, "running code"}}
 
-The easiest way to run the example code in the book—and to experiment with it—is to look it up in the online version of the book at [_https://eloquentjavascript.net_](https://eloquentjavascript.net/). There, you can click any code example to edit and run it and to see the output it produces. To work on the exercises, go to [_https://eloquentjavascript.net/code_](https://eloquentjavascript.net/code), which provides starting code for each coding exercise and allows you to look at the solutions.
+要執行書中的範例程式碼，並進行實驗，最簡單的方法是在本書的線上版本中查閱，網址是 [_https://eloquentjavascript.net_](https://eloquentjavascript.net/)。在那裡你可以點擊任何程式碼範例來編輯和執行它，並查看它產生的輸出。要練習這些習題，請前往 [_https://eloquentjavascript.net/code_](https://eloquentjavascript.net/code)，那裡為每個程式設計習題提供了起始程式碼，並允許你查看解答。
 
 if}}
 
 {{index "developer tools", "JavaScript console"}}
 
-Running the programs defined in this book outside of the book's website requires some care. Many examples stand on their own and should work in any JavaScript environment. But code in later chapters is often written for a specific environment (the browser or Node.js) and can run only there. In addition, many chapters define bigger programs, and the pieces of code that appear in them depend on each other or on external files. The [sandbox](https://eloquentjavascript.net/code) on the website provides links to ZIP files containing all the scripts and data files necessary to run the code for a given chapter.
+在本書網站之外運行本書中定義的程式需要一些注意事項。許多範例是獨立的，應該可以在任何 JavaScript 環境中運作。但後面章節中的程式碼通常是為特定環境（瀏覽器或 Node.js）編寫的，只能在那裡運行。此外，許多章節定義了更大的程式，其中出現的程式碼片段彼此依賴，或者依賴外部檔案。網站上的[沙盒](https://eloquentjavascript.net/code)提供了指向 ZIP 檔案的連結，這些檔案包含運行特定章節的程式碼所需的所有腳本和資料檔案。
 
-## Overview of this book
+## 本書概述
 
-This book contains roughly three parts. The first 12 chapters discuss the JavaScript language. The next seven chapters are about web ((browsers)) and the way JavaScript is used to program them. Finally, two chapters are devoted to ((Node.js)), another environment to program JavaScript in. There are five _project chapters_ in the book that describe larger example programs to give you a taste of actual programming.
+這本書大致包含三個部分。前 12 章討論了 JavaScript 語言本身。接下來的 7 章是關於網頁((瀏覽器))，以及 JavaScript 如何被用來對瀏覽器進行程式設計。最後，有兩章專門討論 ((Node.js))，這是另一個用來編寫 JavaScript 程式的環境。書中有 5 個「專案章節」，描述了較大的範例程式，讓你體驗實際的程式設計。
 
-The language part of the book starts with four chapters that introduce the basic structure of the JavaScript language. They discuss [control structures](program_structure) (such as the `while` word you saw in this introduction), [functions](functions) (writing your own building blocks), and [data structures](data). After these, you will be able to write basic programs. Next, Chapters [?](higher_order) and [?](object) introduce techniques to use functions and objects to write more _abstract_ code and keep complexity under control.
+在[第一個專案章節](robot)建立一個簡單的送貨機器人之後，本書語言部分繼續介紹了[錯誤處理和除錯](error)（第 8 章）、[正則表達式](regexp)（第 9 章處理文字的重要工具）、[模組化](modules)（第 10 章對抗複雜度的另一個防線）以及[非同步程式設計](async)（第 11 章處理需要時間的事件)。[第二個專案章節](language)（實作一個程式設計語言）總結了本書的第一部分。
 
-After a [first project chapter](robot) that builds a crude delivery robot, the language part of the book continues with chapters on [error handling and bug fixing](error), [regular expressions](regexp) (an important tool for working with text), [modularity](modules) (another defense against complexity), and [asynchronous programming](async) (dealing with events that take time). The [second project chapter](language), where we implement a programming language, concludes the first part of the book.
+本書的第二部分（[章節?](browser) to [章節?](paint)）描述了瀏覽器 JavaScript 可以使用的工具。你將學習如何在螢幕上顯示內容（[章節 ?](dom)和章節[章節 ?](canvas)）、響應使用者輸入([章節 ?](event))以及透過網路通訊([章節 ?](http))。這部分同樣有兩個專案章節，分別建立了一個[平台遊戲](game)和一個[像素繪圖程式](paint)。
 
-The second part of the book, Chapters [?](browser) to [?](paint), describes the tools that browser JavaScript has access to. You'll learn to display things on the screen (Chapters [?](dom) and [?](canvas)), respond to user input ([Chapter ?](event)), and communicate over the network ([Chapter ?](http)). There are again two project chapters in this part, building a [platform game](game) and a [pixel paint program](paint).
 
-[Chapter ?](node) describes Node.js, and [Chapter ?](skillsharing) builds a small website using that tool.
+[章節 ?](node) describes Node.js, and [章節 ?](skillsharing) builds a small website using that tool.
+[章節 ?](node)描述了 Node.js，而[章節 ?](skillsharing) 使用這個工具建立了一個小型網站。
 
 {{if commercial
 
-Finally, [Chapter ?](fast) describes some of the considerations that come up when optimizing JavaScript programs for speed.
+最後，[章節 ?](fast)描述了一些在優化 JavaScript 程式速度時需要考慮的因素。
+
 
 if}}
 
-## Typographic conventions
+## 排版慣例
 
 {{index "factorial function"}}
 
-In this book, text written in a `monospaced` font will represent elements of programs. Sometimes these are self-sufficient fragments, and sometimes they just refer to part of a nearby program. Programs (of which you have already seen a few) are written as follows:
+在本書中，以 `monospaced` 書寫的文字表示程式的元素。有時它們是獨立的片段，有時只是引用附近程式的一部分。程式（你已經見過一些）會像這樣被撰寫：
 
 ```
 function factorial(n) {
@@ -267,11 +270,11 @@ function factorial(n) {
 
 {{index "console.log"}}
 
-Sometimes, to show the output that a program produces, the expected output is written after it, with two slashes and an arrow in front.
+有時為了展示程式產生的輸出，預期的輸出會在程式後面寫出，並在前面加上兩個斜線和一個箭頭。
 
 ```
 console.log(factorial(8));
 // → 40320
 ```
 
-Good luck!
+祝你好運！
